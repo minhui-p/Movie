@@ -8,6 +8,7 @@ import Layout from "./component/Layout";
 
 function App() {
   const [movies] = useState(movieListData.results);
+  console.log(movies);
 
   return (
     <div className="p-5">
@@ -21,6 +22,7 @@ function App() {
                   {movies.map((movie) => (
                     <MovieCard
                       key={movie.id}
+                      id={movie.id}
                       title={movie.title}
                       posterPath={movie.poster_path}
                       voteAverage={movie.vote_average}
@@ -30,7 +32,7 @@ function App() {
               </div>
             }
           />
-          <Route path="/details" element={<MovieDetail />} />
+          <Route path="/details/:id" element={<MovieDetail />} />
         </Route>
       </Routes>
     </div>
